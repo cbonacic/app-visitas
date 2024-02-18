@@ -1369,7 +1369,7 @@ parametros_iniciales = {
 #### Layout
 
 app = DashProxy(__name__, transforms=[MultiplexerTransform()], external_stylesheets=[dbc.themes.CERULEAN])
-# server = app.server
+server = app.server
 
 app.config.suppress_callback_exceptions = True
 

@@ -28,20 +28,20 @@ fecha_final = date(2024, 11, 30)
 usuario = 0
 
 # contraseñas
-os.environ['U1'] = 'gabriela'
-os.environ['U2'] = 'finis'
-os.environ['U4'] = 'central'
-os.environ['U9'] = 'alba'
-os.environ['U11'] = 'academia'
-os.environ['U13'] = 'tomas'
-os.environ['U17'] = 'sek'
-os.environ['U19'] = 'america'
-os.environ['U26'] = 'uniacc'
-os.environ['U31'] = 'auto'
-os.environ['U39'] = 'seba'
-os.environ['U42'] = 'raul'
-os.environ['U50'] = 'bernardo'
-os.environ['U68'] = 'miguel'
+# os.environ['U1'] = 'gabriela'
+# os.environ['U2'] = 'finis'
+# os.environ['U4'] = 'central'
+# os.environ['U9'] = 'alba'
+# os.environ['U11'] = 'academia'
+# os.environ['U13'] = 'tomas'
+# os.environ['U17'] = 'sek'
+# os.environ['U19'] = 'america'
+# os.environ['U26'] = 'uniacc'
+# os.environ['U31'] = 'auto'
+# os.environ['U39'] = 'seba'
+# os.environ['U42'] = 'raul'
+# os.environ['U50'] = 'bernardo'
+# os.environ['U68'] = 'miguel'
 
 ### Conexión
 # parámetros de conexión
@@ -63,17 +63,19 @@ objeto_url = URL.create(
     database = 'dbvisitas',
 )
 
-objeto_url = URL.create(
-    'postgresql+psycopg2',
-    username = 'postgres',
-#    password = '',
-    host = 'localhost',
-    database = 'railway-local',
-)
+# objeto_url = URL.create(
+#     'postgresql+psycopg2',
+#     username = 'postgres',
+# #    password = '',
+#     host = 'localhost',
+#     database = 'railway-local',
+# )
 
 # conn_string = 'postgres://dbvisitas_user:WYCcpx0iahOyVxrmz5eAAaI9cHPh3F1h@dpg-cn5oe2un7f5s738jitag-a.oregon-postgres.render.com/dbvisitas'
+# conn_string = os.environ['DB_VISITAS']
 
 engine = create_engine(objeto_url, pool_pre_ping=True, poolclass=NullPool)
+# engine = create_engine(conn_string, pool_pre_ping=True, poolclass=NullPool)
 
 # creación de clases de las bases de datos
 
@@ -1363,6 +1365,7 @@ parametros_iniciales = {
 #### Layout
 
 app = DashProxy(__name__, transforms=[MultiplexerTransform()], external_stylesheets=[dbc.themes.CERULEAN])
+server = app.server
 
 app.config.suppress_callback_exceptions = True
 

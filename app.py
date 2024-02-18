@@ -17,6 +17,10 @@ import dash_bootstrap_components as dbc
 from dash_extensions.enrich import Input, Output, State, DashProxy, MultiplexerTransform, html
 from dash.exceptions import PreventUpdate
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 ### Parámetros
 # período de duración de las visitas
 
@@ -1365,7 +1369,7 @@ parametros_iniciales = {
 #### Layout
 
 app = DashProxy(__name__, transforms=[MultiplexerTransform()], external_stylesheets=[dbc.themes.CERULEAN])
-server = app.server
+# server = app.server
 
 app.config.suppress_callback_exceptions = True
 

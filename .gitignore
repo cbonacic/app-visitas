@@ -1,6 +1,5 @@
 __pycache__
 .DS_Store
-app_render.sublime-project
-app_render.sublime-workspace
-.env
+app-render.sublime-project
+app-render.sublime-workspace
 .python-version
